@@ -1,9 +1,11 @@
 package com.star.sqlitewithlitepal.model;
 
 
+import org.litepal.crud.DataSupport;
+
 import java.util.Date;
 
-public class Comment {
+public class Comment extends DataSupport {
 
     private int id;
     private String content;

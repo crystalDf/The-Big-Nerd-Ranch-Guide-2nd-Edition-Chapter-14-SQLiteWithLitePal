@@ -1,10 +1,12 @@
 package com.star.sqlitewithlitepal.model;
 
 
+import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Category {
+public class Category extends DataSupport {
 
     private int id;
     private String name;

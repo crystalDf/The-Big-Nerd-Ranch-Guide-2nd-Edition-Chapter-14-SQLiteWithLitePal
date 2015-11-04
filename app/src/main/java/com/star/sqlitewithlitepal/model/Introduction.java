@@ -1,7 +1,9 @@
 package com.star.sqlitewithlitepal.model;
 
 
-public class Introduction {
+import org.litepal.crud.DataSupport;
+
+public class Introduction extends DataSupport {
 
     private int id;
     private String guide;

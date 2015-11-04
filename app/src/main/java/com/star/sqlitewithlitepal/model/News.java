@@ -1,11 +1,13 @@
 package com.star.sqlitewithlitepal.model;
 
 
+import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class News {
+public class News extends DataSupport {
 
     private int id;
     private String title;
