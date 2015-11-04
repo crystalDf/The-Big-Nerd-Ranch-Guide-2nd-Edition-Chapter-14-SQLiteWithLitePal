@@ -9,6 +9,8 @@ public class Comment {
     private String content;
     private Date publishedDate;
 
+    private News news;
+
     public int getId() {
         return id;
     }
@@ -31,5 +33,13 @@ public class Comment {
 
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public News getNews() {
+        return news;
+    }
+
+    public void setNews(News news) {
+        this.news = news;
     }
 }

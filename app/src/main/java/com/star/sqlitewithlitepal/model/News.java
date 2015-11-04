@@ -1,7 +1,9 @@
 package com.star.sqlitewithlitepal.model;
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class News {
 
@@ -10,6 +12,12 @@ public class News {
     private String content;
     private Date publishedDate;
     private int commentCount;
+
+    private Introduction introduction;
+
+    private List<Comment> commentList = new ArrayList<>();
+
+    private List<Category> categoryList = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -49,5 +57,29 @@ public class News {
 
     public void setCommentCount(int commentCount) {
         this.commentCount = commentCount;
+    }
+
+    public Introduction getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(Introduction introduction) {
+        this.introduction = introduction;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
+    public List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
     }
 }

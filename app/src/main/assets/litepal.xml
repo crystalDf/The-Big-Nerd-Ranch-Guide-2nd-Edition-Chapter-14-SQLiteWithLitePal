@@ -1,8 +1,10 @@
 <litepal>
     <dbname value="demo"/>
-    <version value="3"/>
+    <version value="7"/>
     <list>
         <mapping class="com.star.sqlitewithlitepal.model.News"/>
         <mapping class="com.star.sqlitewithlitepal.model.Comment"/>
+        <mapping class="com.star.sqlitewithlitepal.model.Introduction"/>
+        <mapping class="com.star.sqlitewithlitepal.model.Category"/>
     </list>
 </litepal>
