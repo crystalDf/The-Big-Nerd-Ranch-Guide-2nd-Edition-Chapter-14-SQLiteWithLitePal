@@ -340,6 +340,36 @@ public class MainActivity extends AppCompatActivity {
 //            cursor.close();
 //        }
         //////////////////////////////
+
+//        统计行数
+//        int result = DataSupport.count(News.class);
+//        Log.d("TAG", result + "");
+        //////////////////////////////
+
+//        统计一共有多少条新闻是零评论
+//        int result = DataSupport.where("commentCount = ?", "0").count(News.class);
+//        Log.d("TAG", result + "");
+        //////////////////////////////
+
+//        统计news表中评论的总数量
+//        int result = DataSupport.sum(News.class, "commentCount", int.class);
+//        Log.d("TAG", result + "");
+        //////////////////////////////
+
+//        统计news表中平均每条新闻有多少评论
+//        double result = DataSupport.average(News.class, "commentCount");
+//        Log.d("TAG", result + "");
+        //////////////////////////////
+
+//        要知道news表中所有新闻里面最高的评论数是多少
+//        int result = DataSupport.max(News.class, "commentCount", int.class);
+//        Log.d("TAG", result + "");
+        //////////////////////////////
+
+//        要知道news表中所有新闻里面最低的评论数是多少
+//        int result = DataSupport.min(News.class, "commentCount", int.class);
+//        Log.d("TAG", result + "");
+        //////////////////////////////
     }
 
     private void logNews(News news) {
