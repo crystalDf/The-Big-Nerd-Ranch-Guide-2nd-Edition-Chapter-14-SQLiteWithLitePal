@@ -84,4 +84,8 @@ public class News extends DataSupport {
     public void setCategoryList(List<Category> categoryList) {
         this.categoryList = categoryList;
     }
+
+    public List<Comment> queryCommentList() {
+        return DataSupport.where("news_id = ?", id + "").find(Comment.class);
+    }
 }

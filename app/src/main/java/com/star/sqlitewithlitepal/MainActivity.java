@@ -3,8 +3,14 @@ package com.star.sqlitewithlitepal;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import com.star.sqlitewithlitepal.model.Comment;
+import com.star.sqlitewithlitepal.model.News;
 
 import org.litepal.tablemanager.Connector;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -168,5 +174,194 @@ public class MainActivity extends AppCompatActivity {
 //        }
         //////////////////////////////
 
+//        查询准备
+//        News news1 = new News();
+//        news1.setTitle("这是一条新闻标题");
+//        news1.setContent("这是一条新闻内容");
+//        news1.setPublishedDate(new Date());
+//        news1.save();
+//
+//        Comment comment1 = new Comment();
+//        comment1.setContent("好评！");
+//        comment1.setPublishedDate(new Date());
+//        comment1.save();
+//
+//        Comment comment2 = new Comment();
+//        comment2.setContent("赞一个");
+//        comment2.setPublishedDate(new Date());
+//        comment2.save();
+//
+//        News news2 = new News();
+//        news2.getCommentList().add(comment1);
+//        news2.getCommentList().add(comment2);
+//        news2.setTitle("第二条新闻标题");
+//        news2.setContent("第二条新闻内容");
+//        news2.setPublishedDate(new Date());
+//        news2.setCommentCount(news2.getCommentList().size());
+//        news2.save();
+//
+//        for (int i = 1; i <= 20; i++) {
+//            News news = new News();
+//            news.setTitle("这是第" + (i + 2) + "条新闻标题");
+//            news.setContent("这是第" + (i + 2) + "条新闻内容");
+//            news.setPublishedDate(new Date());
+//            news.save();
+//        }
+        //////////////////////////////
+
+//        查询news表中id为5的这条记录
+//        News news = DataSupport.find(News.class, 5);
+//        if (news != null) {
+//            logNews(news);
+//        }
+        //////////////////////////////
+
+//        要获取news表中的第一条数据
+//        News firstNews = DataSupport.findFirst(News.class);
+//        if (firstNews != null) {
+//            logNews(firstNews);
+//        }
+        //////////////////////////////
+
+//        要获取News表中的最后一条数据
+//        News lastNews = DataSupport.findLast(News.class);
+//        if (lastNews != null) {
+//            logNews(lastNews);
+//        }
+        //////////////////////////////
+
+//        把news表中id为1、3、5、7的数据都查出来
+//        List<News> newsList = DataSupport.findAll(News.class, 11, 13, 15, 17);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        查询的多个id已经封装到一个数组里
+//        long[] ids = {11, 13, 15, 17};
+//        List<News> newsList = DataSupport.findAll(News.class, ids);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        查询所有数据
+//        List<News> newsList = DataSupport.findAll(News.class);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        查询news表中所有commentCount = 0的news
+//        List<News> newsList = DataSupport.where("commentCount = ?", "0").find(News.class);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        只要title和content这两列数据
+//        List<News> newsList = DataSupport.select("title", "content")
+//                .where("commentCount = ?", "0").find(News.class);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        将查询出的news按照publishedDate倒序排列，即最新发布的news放在最前面
+//        List<News> newsList = DataSupport
+//                .select("title", "content")
+//                .where("commentCount = ?", "0")
+//                .order("publishedDate desc")
+//                .find(News.class);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        希望只查询出前10条数据
+//        List<News> newsList = DataSupport
+//                .select("title", "content")
+//                .where("commentCount = ?", "0")
+//                .order("publishedDate desc")
+//                .limit(10)
+//                .find(News.class);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        对news进行分页展示，翻到第二页时，展示第11到第20条新闻
+//        List<News> newsList = DataSupport
+//                .select("title", "content")
+//                .where("commentCount = ?", "0")
+//                .order("publishedDate desc")
+//                .limit(10)
+//                .offset(10)
+//                .find(News.class);
+//        if (newsList != null) {
+//            logNewsList(newsList);
+//        }
+        //////////////////////////////
+
+//        要查询news表中id为6的新闻，并且把这条新闻所对应的评论也一起查询出来
+//        News news = DataSupport.find(News.class, 6, true);
+//        if (news != null) {
+//            logNews(news);
+//            List<Comment> commentList = news.getCommentList();
+//            if (commentList != null) {
+//                logCommentList(commentList);
+//            }
+//        }
+        //////////////////////////////
+
+//        要查询news表中id为6的新闻，并且把这条新闻所对应的评论也一起查询出来
+//        在News类中添加了一个queryCommentList()方法，从而不使用激进查询
+//        News news = DataSupport.find(News.class, 6);
+//        if (news != null) {
+//            logNews(news);
+//            List<Comment> commentList = news.queryCommentList();
+//            if (commentList != null) {
+//                logCommentList(commentList);
+//            }
+//        }
+        //////////////////////////////
+
+//        通过原生的SQL语句方式来查询数据，LIMIT offset, limit
+//        Cursor cursor = DataSupport.findBySQL(
+//                "SELECT id, title, content FROM news WHERE commentCount = ? " +
+//                        "ORDER BY publishedDate desc LIMIT 10, 12", "0");
+//        if (cursor != null) {
+//            while (cursor.moveToNext()) {
+//                String id = cursor.getString(cursor.getColumnIndex("id"));
+//                String title = cursor.getString(cursor.getColumnIndex("title"));
+//                String content = cursor.getString(cursor.getColumnIndex("content"));
+//                Log.d("TAG", id + " " + title + " " + content);
+//            }
+//            cursor.close();
+//        }
+        //////////////////////////////
+    }
+
+    private void logNews(News news) {
+        Log.d("TAG", news.getId() + " " + news.getTitle() + " " + news.getContent()
+                + " " + news.getPublishedDate() + " " + news.getCommentCount());
+    }
+
+    private void logNewsList(List<News> newsList) {
+        for (News news : newsList) {
+            logNews(news);
+        }
+    }
+
+    private void logComment(Comment comment) {
+        Log.d("TAG", comment.getId() + " " + comment.getContent()
+                + " " + comment.getPublishedDate() + " "
+                + ((comment.getNews() != null) ? comment.getNews().getId() : null));
+    }
+
+    private void logCommentList(List<Comment> commentList) {
+        for (Comment comment : commentList) {
+            logComment(comment);
+        }
     }
 }
