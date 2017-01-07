@@ -394,4 +394,5 @@ public class MainActivity extends AppCompatActivity {
             logComment(comment);
         }
     }
+
 }

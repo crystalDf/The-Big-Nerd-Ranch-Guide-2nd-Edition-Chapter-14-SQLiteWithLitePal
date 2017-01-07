@@ -32,4 +32,5 @@ public class Introduction extends DataSupport {
     public void setDigest(String digest) {
         this.digest = digest;
     }
+
 }

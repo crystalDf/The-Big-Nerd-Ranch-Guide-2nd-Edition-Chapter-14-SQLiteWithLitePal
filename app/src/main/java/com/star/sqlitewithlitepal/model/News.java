@@ -88,4 +88,5 @@ public class News extends DataSupport {
     public List<Comment> queryCommentList() {
         return DataSupport.where("news_id = ?", id + "").find(Comment.class);
     }
+
 }

@@ -36,4 +36,5 @@ public class Category extends DataSupport {
     public void setNewsList(List<News> newsList) {
         this.newsList = newsList;
     }
+
 }
